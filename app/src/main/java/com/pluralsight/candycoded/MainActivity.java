@@ -1,5 +1,6 @@
 package com.pluralsight.candycoded;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.ContentValues;
 import android.content.Intent;
@@ -69,12 +70,12 @@ public class MainActivity extends AppCompatActivity {
 
             SQLiteDatabase db = candyDbHelper.getWritableDatabase();
             Cursor cursor = db.rawQuery("SELECT * FROM candy", null);
-            //adapter.changeCursor(cursor);
+            adapter.changeCursor(cursor);
           }
         });
   }
 
-  @Override public boolean onOptionsItemSelected(MenuItem item) {
+  @Override public boolean onOptionsItemSelected(@NonNull MenuItem item) {
     Intent infoIntent = new Intent(this, InfoActivity.class);
     startActivity(infoIntent);
 
